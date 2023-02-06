@@ -1,0 +1,41 @@
+name: "Exercicio 1 CI-CD workflow"
+
+on:
+  push:
+  
+jobs:
+  print_data_atual_ubuntu:
+    name: Data atual Ubuntu!
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Data atual Ubuntu!
+        run: date
+        
+  print_data_atual_windows:
+    name: Data atual Windows!
+    runs-on: windows-latest
+    
+    steps:
+      - name: Data atual Windows!
+        run: date
+        
+  print_data_atual_macos:
+    name: Data atual MacOS!
+    runs-on: macos-latest
+    
+    steps:
+      - name: Data atual MacOS!
+        run: date
+        
+  print_final:
+    name: Data atual final!
+    runs-on: ubuntu-latest
+    needs:
+      - print_data_atual_ubuntu
+      - print_data_atual_windows
+      - print_data_atual_macos
+    
+    steps:
+      - name: Data final!
+        run: date
